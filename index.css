@@ -1,0 +1,140 @@
+.body {
+    background-color: rgb(103, 103, 103);
+    font-family: 'Roboto', sans-serif;
+    animation: animatedBackground 5s infinite alternate;
+}
+
+.container-info, .container-info2 {
+    flex:1;
+    width: 10%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+    z-index: 1000;
+    margin: 10px;
+    margin-top: 100px;
+    transition: box-shadow 0.3s;
+    height: 10%;
+}
+
+.container-info:hover, .container-info2:hover {
+    box-shadow: 5px 5px 10px rgba(188, 34,34); 
+}
+.container-wrapper {
+    display: flex;
+    justify-content: space-between; 
+}
+.lista1 {
+    font-weight: bold;
+    color: #336699;
+    list-style: none;
+    padding: 0;
+}
+
+.descripcion {
+    color: rgb(188, 34, 34);
+}
+
+.lista1 ul:hover {
+    background-color: #7f8281;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.titulo {
+    color: rgb(188, 34, 34);
+    text-align: center;
+}
+
+.lista1 .titulo-descripcion {
+    color: rgb(188, 34, 34);
+    text-decoration: underline;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #180606;
+    color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1001;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 30px;
+    padding-bottom: 10px;
+}
+
+.header a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    align-items: center;
+    display: flex;
+}
+
+.header a:hover {
+    color: rgb(188, 34, 34);
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu-list li {
+    margin-right: 20px;
+}
+
+.cronometro {
+    font-size: 16px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color: #333; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    padding: 5px 10px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-right: 100px;
+}
+
+
+@keyframes animatedBackground {
+    0% {
+      background-color: #000000;
+    }
+    50% {
+      background-color: #2d2c2c;
+    }
+    100% {
+      background-color: #c2bdbd;
+    }
+}
+.bg-welcome{
+    background-color:rgb(255, 255, 255);
+}
+
+.img-welcome{
+    background-image: url(/img/banner3.jpg);
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-position: center;
+    background-size: cover;
+    
+}

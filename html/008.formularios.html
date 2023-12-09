@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ç, initial-scale=1.0">
+    <link rel="stylesheet" href="css/008.formularios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+
+        
+        <div class="formularioCont">
+            <div class="formTitle">
+                <h1> Formulario de Contacto</h1>
+             </div>
+    
+            <div class="firstName">
+        
+                <label for="firstName">Nombre</label>
+                <input type="text" name="firstName" id="firstName">
+    
+            </div>
+    
+            
+    
+            <div class="lastName">
+                <label for="lastName">Apellido</label>
+                <input type="text" name="lastName" id="lastName">
+    
+            </div>
+    
+            <div class="emailForm">
+                <label for="emailForm">Correo Electronico</label>
+                <input type="email" name="emailForm" id="emailForm">
+    
+            </div>
+            <div class="phoneForm">
+                <label for="phoneForm">Telefono</label>
+                <input type="tel" name="phoneForm" id="phoneForm" step="">
+    
+            </div>
+            <div class="ageForm">
+                <label for="ageForm">Edad</label>
+                <input type="number" name="ageForm" id="ageForm">
+    
+            </div>
+
+            <div class="SalaryForm">
+                <label for="SalaryForm">Salario</label>
+                <input type="number" name="SalaryForm" id="SalaryForm" step="200">
+    
+            </div>
+
+            <div class="weightForm">
+                <label for="weightForm">Peso</label>
+                <input type="number" name="weightForm" id="weightForm" step="0.1">
+    
+            </div>
+
+            <div>
+                <label for="bio">Biografía</label>
+                <textarea name="bio" id="" cols="52" rows="10"></textarea>
+            </div>
+            <div class="termsCont">
+                <input type="checkbox" name="terms" id="terms" required>
+                <label for="terms">He leído y aceptado los terminos y condiciones.</label>
+                
+            </div>
+
+            <br>
+               
+            <div class="genderCont">
+                <input type="radio" name="gender" id="male" value="male" >
+                <label for="male">Masculino</label>
+
+                <input type="radio" name="gender" id="female" value="female" >
+                <label for="female">Femenino</label>
+                
+                <input type="radio" name="gender" id="Other" value="Other" >
+                <label for="Other">Otro</label>
+            </div>
+            <br>        
+            <div class="birthDate">
+                <label for="birthDate">Fecha de Nacimiento</label>
+                <input type="date" id="birthDate" name="birthDate" min="1950-01-01" max="2023-12-31">
+            </div>
+            <br>
+            <div class="dateTime">
+                <label for="courseDateTime">Fecha comienzo de curso</label>
+                <input type="datetime-local" name="courseDateTime" id="courseDateTime">
+            </div>
+            <div class="selectForm" >
+                <select name="company" id="company">
+                    <option value="0">Selecciona una compañia</option>
+                    <option value="certidevs">certidevs</option>
+                    <option value="cosmicDevelopments">Cosmic Developments</option>
+                    <option value="techChef">Tech Chef</option>
+                    <option value="geekyStore">Geeky Store</option>
+                </select>
+            </div>
+
+            <div class="selectForm">
+                <label for="knowledge">Lenguajes de programación conocidos:</label>
+                <select name="knowledge" id="knowledge" multiple>
+                    <option value="" disabled selected>Seleccionar Lenguaje</option>
+                    <option value="java">Java</option>
+                    <option value="java">Html</option>
+                    <option value="java">Javascript</option>
+                    <option value="java">React</option>
+                    <option value="java">Angular</option>
+                </select>
+            </div>
+                <br>
+                <div>
+                    <label for="pass">Contraseña</label>
+                
+                    <div class="buttonPassword">
+                        <button type="button" onclick="showPassword()">
+                            <i class="fa-solid fa-magnifying-glass"></i> 
+                        </button>
+                    </div>
+                    <input type="password" name="pass" id="pass">
+                </div>
+           <br>
+            <div class="formButtom">
+                <button type="submit">Enviar</button>
+            </div>
+        
+             </div>
+
+          
+
+
+             
+
+
+
+    </form>
+</body>
+<script src="js/showPassword.js"></script>
+</html>

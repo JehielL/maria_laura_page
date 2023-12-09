@@ -1,0 +1,47 @@
+body, h1, h2, h3, p, table {
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+thead th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tfoot th {
+    background-color: #f2f2f2;
+    border: 1px solid #ada3a3;
+    padding: 8px;
+    text-align: left;
+}
+
+
+tbody th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+caption{
+    padding-bottom: 10px;
+}
+
