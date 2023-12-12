@@ -26,7 +26,7 @@ function showPassword() {
 
 async function saveRecipeToServer(recipeData) {
   try {
-    const response = await fetch('http://localhost:27017/guardar-receta', {
+    const response = await fetch('http://localhost:3000/apprecipe/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,16 +55,14 @@ async function handleFormSubmit(event) {
   const title = getValue('recipeTitle');
   const elaboration = getValue('recipeElaboration');
   const category = getValue('recipeCategory');
-  const ingredients = getValues('recipeIngredients[]');
-  const amounts = getValues('recipeAmounts[]');
-  const prices = getValues('recipePrices[]');
+  const ingredients = getValues('recipeIngredients');
+  const amounts = getValues('recipeAmounts');
+  const prices = getValues('recipePrices');
 
   try {
     // Calcular el precio total automáticamente
     const totalPrices = prices.map(parseFloat).reduce((acc, price) => acc + price, 0);
-
-   Price: totalPrices,
-   
+ 
     // Mostrar resultados
     displayRecipeResult({
       image,
@@ -139,11 +137,11 @@ function displayRecipeResult({ image, title, elaboration, category, ingredients,
   row.innerHTML = `
     <td><img src="${image}" alt="${title}" class="img-fluid" style="max-width: 100px;"></td>
     <td>${title}</td>
-    <td>${prices.join('<br>')}</td>
+    <td>${elaboration}</td>
     <td>${category}</td>
     <td>${ingredients.join('<br>')}</td>
     <td>${amounts.join('<br>')}</td>
-    <td>${elaboration}</td>
+    <td>${prices.join('<br>')}</td>
     <td>${totalPrice.toFixed(2)}</td> <!-- Nueva celda para mostrar el precio total -->
   `;
 }

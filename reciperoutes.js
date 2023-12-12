@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Recipe = require('./models/recipe.js');
+const Recipe = require('./recipe.js');
 
 // Ruta para guardar una nueva receta
-router.post('/guardar', async (req, res) => {
+router.post('/recipe', async (req, res) => {
   try {
     const {
       image,

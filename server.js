@@ -1,13 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Recipe = require('./models/recipe.js');
+const Recipe = require('./recipe.js');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost:27017/apprecipe', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect('mongodb://127.0.0.1:27017/apprecipe');
+
+const recipeSchema = new mongoose.Schema({
+  image: String,
+  title: String,
+  prices: Number,
+  category: String,
+  ingredients: String,
+  amounts: Number,
+  elaboration: String,
+  totalPrice: Number,
 });
 
 app.use(express.json());
@@ -18,10 +26,22 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, message: 'Error interno del servidor' });
 });
 
-const staticPath = path.join(__dirname, 'public');
-app.use(express.static(staticPath));
+const publicPath = path.join(__dirname, '');
+app.use(express.static(publicPath));
 
-app.post('/guardar-receta', async (req, res) => {
+// Ruta para recetas.html
+app.get('/recetas.html', (req, res) => {
+  res.sendFile(path.join(publicPath, 'recetas.html'));
+});
+
+// Ruta para la página principal
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
+// Ruta para guardar una receta
+app.post('/apprecipe', async (req, res) => {
+  console.log('EJECUTANDO POST APPRECIPE');
   const {
     image,
     title,
@@ -32,7 +52,7 @@ app.post('/guardar-receta', async (req, res) => {
     elaboration,
     totalPrice,
   } = req.body;
-
+  console.log('EJECUTANDO POST APPRECIPE');
   try {
     const newRecipe = new Recipe({
       image,
@@ -52,11 +72,6 @@ app.post('/guardar-receta', async (req, res) => {
     console.error('Error al guardar la receta:', error);
     res.status(500).json({ success: false, message: 'Error al guardar la receta', error: error.message });
   }
-});
-
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {

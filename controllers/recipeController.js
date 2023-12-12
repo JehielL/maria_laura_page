@@ -1,4 +1,4 @@
-const Recipe = require('../models/Recipe');
+const Recipe = require('../recipe');
 
 exports.handleFormSubmit = async (req, res) => {
   try {
