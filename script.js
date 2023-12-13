@@ -26,7 +26,7 @@ function showPassword() {
 
 async function saveRecipeToServer(recipeData) {
   try {
-    const response = await fetch('http://localhost:3000/apprecipe/', {
+    const response = await fetch('/apprecipe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,16 +40,16 @@ async function saveRecipeToServer(recipeData) {
       console.log(result.message);
     } else {
       console.error(result.message);
+      alert(`Error al guardar la receta: ${result.message}`);
     }
   } catch (error) {
     console.error('Error al enviar la receta al servidor:', error);
+    alert('Error al enviar la receta al servidor. Por favor, inténtelo de nuevo.');
   }
 }
 
-
 async function handleFormSubmit(event) {
   event.preventDefault();
-  
 
   const image = getValue('recipeImage');
   const title = getValue('recipeTitle');
@@ -62,7 +62,7 @@ async function handleFormSubmit(event) {
   try {
     // Calcular el precio total automáticamente
     const totalPrices = prices.map(parseFloat).reduce((acc, price) => acc + price, 0);
- 
+
     // Mostrar resultados
     displayRecipeResult({
       image,
@@ -88,7 +88,9 @@ function getValue(elementId) {
 }
 
 function handleValueError(elementId) {
-  console.error(`Element with ID ${elementId} not found.`);
+  const errorMessage = `Element with ID ${elementId} not found.`;
+  console.error(errorMessage);
+  alert(errorMessage);
   return '';
 }
 

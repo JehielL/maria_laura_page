@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://127.0.0.1:27017/apprecipe');
+mongoose.connect('mongodb://127.0.0.1:27017/apprecipe', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const recipeSchema = new mongoose.Schema({
   image: String,
@@ -18,12 +18,15 @@ const recipeSchema = new mongoose.Schema({
   totalPrice: Number,
 });
 
+module.exports = Recipe;
+
 app.use(express.json());
 
 // Middleware para manejar errores asincrónicos
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: 'Error interno del servidor' });
+  next(); // Asegurar que la ejecución continúe
 });
 
 const publicPath = path.join(__dirname, '');
@@ -41,7 +44,6 @@ app.get('/', (req, res) => {
 
 // Ruta para guardar una receta
 app.post('/apprecipe', async (req, res) => {
-  console.log('EJECUTANDO POST APPRECIPE');
   const {
     image,
     title,
@@ -52,7 +54,7 @@ app.post('/apprecipe', async (req, res) => {
     elaboration,
     totalPrice,
   } = req.body;
-  console.log('EJECUTANDO POST APPRECIPE');
+
   try {
     const newRecipe = new Recipe({
       image,
